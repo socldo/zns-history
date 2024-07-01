@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package vn.techres.microservice.grpc.nestjs_webhook_zns;
+
+service ZnsWebhookService {
+    rpc ZnsTracking (ZnsTrackingRequest) returns (BaseResponseZns) {};
+}
+
+message ZnsTrackingRequest {
+	string tracking_id = 1;
+	string phone = 2;
+	string msg_id = 3;
+	string delivery_time = 4;
+}
+
+message BaseResponseZns {
+    int32 status = 1;
+    string message = 2;
+    Empty data = 3;
+}
+
+message Empty {
+}
